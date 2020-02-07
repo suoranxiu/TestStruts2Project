@@ -4,15 +4,32 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<package name="default" extends="struts-default">
-		<action name="TestActionContext" class="com.example.struts2.action.TestActionContext">
+
+	<!--配置struts可以受理的请求的拓展名	-->
+	<constant name="struts.action.extension" value="action,do,"></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="TestActionContext" class="action.TestActionContext">
 			<result>/test-actionContext.jsp</result>
 		</action>
-		<action name="TestAwareAction" class="com.example.struts2.action.TestAwareAction">
+		<action name="TestAwareAction" class="action.TestAwareAction">
 			<result>/test-aware.jsp</result>
 		</action>
-		<action name="TestServletActionContextAction" class="com.example.struts2.action.TestServletActionContextAction">
+		<action name="TestServletActionContextAction" class="action.TestServletActionContextAction">
 			<result>/test-aware.jsp</result>
+		</action>
+		<action name="TestServletAwareAction" class="action.TestServletAwareAction">
+			<result>/test-aware.jsp</result>
+		</action>
+
+		<action name="Login_ui">
+			<result>/login.jsp</result>
+		</action>
+		<action name="user-login" class="action.UserAction">
+			<result name="login-success">/login-success.jsp</result>
+		</action>
+		<action name="user-logout" class="action.UserAction" method="logout">
+			<result name="logout-success">/login.jsp</result>
 		</action>
 	</package>
 </struts>

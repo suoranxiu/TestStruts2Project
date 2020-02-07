@@ -7,6 +7,10 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import java.util.Map;
 
+/**
+ * Action 类通过可以实现某些特定的接口, 让 Struts2 框架在运行时向 Action 实例注入
+ * parameters, request, session 和 application 对应的 Map 对象
+ */
 public class TestAwareAction implements ApplicationAware, SessionAware, RequestAware, ParameterAware {
 
     private Map<String,Object> application;
